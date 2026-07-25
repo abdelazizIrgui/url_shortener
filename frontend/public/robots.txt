@@ -1,0 +1,21 @@
+# LinkBlick — robots.txt
+# TODO: update the Sitemap URL below once you know your production domain.
+
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /about
+Allow: /contact
+Allow: /blog
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+Allow: /accessibility
+
+# Private/authenticated app pages — no SEO value, keep out of the index
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /campaigns
+Disallow: /bio-editor
+
+Sitemap: https://linkblick.com/sitemap.xml

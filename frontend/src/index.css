@@ -1,0 +1,125 @@
+:root {
+  /* Without this, Chrome/Edge/Firefox render native controls (the <select>
+     dropdown popup, scrollbars, etc.) using light OS chrome by default —
+     which is what caused the white-background dropdown. This tells the
+     browser "this page is dark", so those native bits match our theme too. */
+  color-scheme: dark;
+
+  /* ── Midnight-to-teal surface palette (dark theme, default) ──
+     Sourced straight from the brand swatch: deep navy-violet base
+     rising through the teal-blues into a vivid sea-green accent. */
+  --bg: #140c30;
+  --surface: #1a1440;
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --surface-3: rgba(255, 255, 255, 0.11);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(255, 255, 255, 0.20);
+
+  /* ── Colorful accents (used to "mix" cards, icons & buttons) ── */
+  --accent: #16a085;
+  --accent-dim: rgba(22, 160, 133, 0.16);
+  --accent-glow: rgba(22, 160, 133, 0.32);
+  --accent-text: #2fd9b8;
+  --on-accent: #0a0f24;
+
+  --teal: #168777;
+  --teal-dim: rgba(22, 135, 119, 0.20);
+
+  --warm: #ff6b81;
+  --warm-dim: rgba(255, 107, 129, 0.16);
+
+  --gold: #f5b83d;
+  --gold-dim: rgba(245, 184, 61, 0.18);
+
+  --pink: #ec4899;
+  --pink-dim: rgba(236, 72, 153, 0.18);
+
+  --blue: #4f8fd6;
+  --blue-dim: rgba(79, 143, 214, 0.18);
+
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.72);
+  --muted: rgba(255, 255, 255, 0.5);
+  --success: #2fd9b8;
+
+  --grid-dot: rgba(255, 255, 255, 0.05);
+  --bg-glow-1: rgba(22, 160, 133, 0.18);
+  --bg-glow-2: rgba(21, 86, 91, 0.20);
+  --header-bg: #0a0620;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  --font-display: "Poppins", "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ── Light theme override — toggled via data-theme="light" on <html> ── */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f2f8f6;
+  --surface: #ffffff;
+  --surface-2: rgba(20, 12, 48, 0.04);
+  --surface-3: rgba(20, 12, 48, 0.07);
+  --border: rgba(20, 12, 48, 0.10);
+  --border-light: rgba(20, 12, 48, 0.18);
+
+  --accent: #16a085;
+  --accent-dim: rgba(22, 160, 133, 0.10);
+  --accent-glow: rgba(22, 160, 133, 0.18);
+  --accent-text: #128f76;
+  --on-accent: #ffffff;
+
+  --teal: #15565b;
+  --teal-dim: rgba(21, 86, 91, 0.12);
+
+  --text: #140c30;
+  --text-secondary: rgba(20, 12, 48, 0.68);
+  --muted: rgba(20, 12, 48, 0.48);
+  --success: #128f76;
+
+  --grid-dot: rgba(20, 12, 48, 0.06);
+  --bg-glow-1: rgba(22, 160, 133, 0.10);
+  --bg-glow-2: rgba(21, 86, 91, 0.08);
+  --header-bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+/* Native date-picker icon defaults to dark and disappears on our dark
+   surfaces — color-scheme tells the browser which icon set to draw. */
+input[type="date"] { color-scheme: dark; }
+:root[data-theme="light"] input[type="date"] { color-scheme: light; }
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 12% 8%, var(--bg-glow-1), transparent 40%),
+    radial-gradient(circle at 88% 92%, var(--bg-glow-2), transparent 45%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root { min-height: 100vh; }
+
+button { font-family: inherit; cursor: pointer; }
+
+::selection { background: var(--accent-glow); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
