@@ -2,7 +2,7 @@
 // Development: "http://localhost:3000"
 // Production:  "https://api.linkblick.com"
 // Or use an env variable with Vite: import.meta.env.VITE_API_URL
-export const API_BASE_URL = import.meta.env.VITE_API_URL || "https://api.linkblick.com";
+export const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 // ─── Google OAuth Client ID ───────────────────────────────────────────────────
 // Get this from https://console.cloud.google.com → APIs & Services → Credentials

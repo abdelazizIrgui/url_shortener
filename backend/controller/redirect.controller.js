@@ -138,7 +138,7 @@ const pickDestination = async (foundUrl) => {
   return chosen.url;
 };
 
-const getFrontendUrl = () => process.env.FRONTEND_URL || "https://linkblick.com";
+const getFrontendUrl = () => process.env.FRONTEND_URL || "http://localhost:5173";
 
 /* ── Redirect short URL → original URL + record the click ────────────── */
 const redirectShortUrl = async (req, res) => {

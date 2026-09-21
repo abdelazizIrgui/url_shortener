@@ -519,7 +519,7 @@ const forgotPassword = async (req, res) => {
     user.resetPasswordExpires = new Date(Date.now() + RESET_TOKEN_HOURS * 60 * 60 * 1000);
     await user.save();
 
-    const frontendUrl = process.env.FRONTEND_URL || "https://linkblick.com";
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
     const resetUrl = `${frontendUrl}/reset-password?token=${rawToken}`;
 
     // Fire-and-forget — don't let mail delivery slow down or fail the response.
