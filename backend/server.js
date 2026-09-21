@@ -21,11 +21,11 @@ app.set("trust proxy", 1);
 // after the first visit.
 if (process.env.NODE_ENV === "production") {
   app.use((req, res, next) => {
+    if (req.method === "OPTIONS") return next(); // لا تُعِد توجيه طلبات preflight
     if (req.secure || req.headers["x-forwarded-proto"] === "https") return next();
     return res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
   });
 }
-
 // ─── Security headers (Helmet) ───────────────────────────────────────────────
 // This is a JSON API, not an HTML-serving app, so the CSP/COEP directives
 // Helmet ships for browser-rendered pages aren't relevant here and can only
