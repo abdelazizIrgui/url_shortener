@@ -45,16 +45,39 @@ app.use(
 // required for the httpOnly refresh-token cookie to be sent/received
 // cross-origin — set FRONTEND_URL in production or cookie-based auth won't
 // work from the deployed frontend.
-const allowedOrigins = process.env.FRONTEND_URL
-  ? [process.env.FRONTEND_URL]
-  : true; // allow all in dev (no FRONTEND_URL set)
+// const allowedOrigins = process.env.FRONTEND_URL
+//   ? [process.env.FRONTEND_URL]
+//   : true; // allow all in dev (no FRONTEND_URL set)
+
+// app.use(
+//   cors({
+//     origin: allowedOrigins,
+//     credentials: true,
+//   })
+// );
+
+
+// ─── CORS ────────────────────────────────────────────────────────────────────
+const allowedOrigins = [
+  "https://linkanalyse.com",
+  "https://www.linkanalyse.com",
+  process.env.FRONTEND_URL
+].filter(Boolean); // يزيل أي قيم فارغة إذا لم يكن FRONTEND_URL معرفاً
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      // السماح للطلبات المحلية (Dev) أو الطلبات القادمة من القائمة المسموحة
+      if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== "production") {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 
 // The default express.json() body limit is only 100kb, which is far too
 // small for base64-encoded avatar/cover images sent from the registration
