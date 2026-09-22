@@ -58,26 +58,41 @@ app.use(
 
 
 // ─── CORS ────────────────────────────────────────────────────────────────────
+
+
+// ─── 1. CORS (يجب أن يكون أول Middleware على الإطلاق) ───────────────────────
+// ─── 1. CORS ─────────────────────────────────────────────────────────────────
 const allowedOrigins = [
   "https://linkanalyse.com",
   "https://www.linkanalyse.com",
   process.env.FRONTEND_URL
-].filter(Boolean); // يزيل أي قيم فارغة إذا لم يكن FRONTEND_URL معرفاً
+].filter(Boolean);
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // السماح للطلبات المحلية (Dev) أو الطلبات القادمة من القائمة المسموحة
-      if (!origin || allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== "production") {
+      if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== "production") {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
   })
 );
 
+// ─── 2. Security headers (Helmet) ───────────────────────────────────────────
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
+
+// (بقية الكود الخاص بالـ parsers والـ limiters والـ routes كما هو دون تغيير)
 
 // The default express.json() body limit is only 100kb, which is far too
 // small for base64-encoded avatar/cover images sent from the registration
