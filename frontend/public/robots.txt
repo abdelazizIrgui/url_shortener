@@ -1,4 +1,4 @@
-# LinkBlick — robots.txt
+# LinkAnalyse — robots.txt
 # TODO: update the Sitemap URL below once you know your production domain.
 
 User-agent: *
@@ -18,4 +18,4 @@ Disallow: /profile
 Disallow: /campaigns
 Disallow: /bio-editor
 
-Sitemap: https://linkblick.com/sitemap.xml
+Sitemap: https://linkanalyse.com/sitemap.xml

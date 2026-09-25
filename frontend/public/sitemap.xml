@@ -5,47 +5,47 @@
      (/:username) are intentionally left out — see robots.txt and per-page <meta name="robots">. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://linkblick.com/</loc>
+    <loc>https://linkanalyse.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/login</loc>
+    <loc>https://linkanalyse.com/login</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/about</loc>
+    <loc>https://linkanalyse.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/contact</loc>
+    <loc>https://linkanalyse.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/blog</loc>
+    <loc>https://linkanalyse.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/privacy</loc>
+    <loc>https://linkanalyse.com/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/terms</loc>
+    <loc>https://linkanalyse.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/cookies</loc>
+    <loc>https://linkanalyse.com/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://linkblick.com/accessibility</loc>
+    <loc>https://linkanalyse.com/accessibility</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

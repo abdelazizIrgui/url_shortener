@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://linkblick.com"; // TODO: replace with your real production domain
+const SITE_URL = "https://linkanalyse.com"; // TODO: replace with your real production domain
 
 function setMeta(name, content, attr = "name") {
   if (!content) return;
