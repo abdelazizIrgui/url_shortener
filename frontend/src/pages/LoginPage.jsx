@@ -352,7 +352,7 @@ export default function LoginPage() {
             <ChainIcon />
           </div>
           <span style={{ fontSize: 18, fontWeight: 700, color: "#e8eaf2", letterSpacing: "-0.02em" }}>
-            LinkBlick
+            LinkAnalyse
           </span>
         </div>
 
